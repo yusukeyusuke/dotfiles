@@ -66,6 +66,11 @@ e.x, 00_hoge.el, 01_huga.el ... 99_keybind.el"
   :group 'init-loader
   :type 'regexp)
 
+(defcustom init-loader-ntemacs-regexp "^ntemacs-"
+  "meadow 使用時に読み込まれる設定ファイルにマッチする正規表現"
+  :group 'init-loader
+  :type 'regexp)
+
 (defcustom init-loader-carbon-emacs-regexp "^carbon-emacs-"
   "carbon-emacs 使用時に読み込まれる設定ファイルにマッチする正規表現"
   :group 'init-loader
@@ -86,9 +91,12 @@ e.x, 00_hoge.el, 01_huga.el ... 99_keybind.el"
   (let ((init-dir (init-loader-follow-symlink init-dir)))
     (assert (and (stringp init-dir) (file-directory-p init-dir)))
     (init-loader-re-load init-loader-default-regexp init-dir t)
-    ;; meadow
-    (and (featurep 'meadow)
-         (init-loader-re-load init-loader-meadow-regexp init-dir))
+    ;; meadow or ntemacs
+    (cond 
+     ((and (featurep 'meadow)
+           (init-loader-re-load init-loader-meadow-regexp init-dir)))
+     ((and (equal system-type 'windows-nt)
+           (init-loader-re-load init-loader-ntemacs-regexp init-dir))))
     ;; carbon emacs
     (and (featurep 'carbon-emacs-package)
          (init-loader-re-load init-loader-carbon-emacs-regexp init-dir))

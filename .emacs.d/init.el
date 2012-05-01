@@ -10,6 +10,16 @@
 
 (add-to-load-path "elisp" "conf" "public_repos")
 
+;;package.el settings
+(when (require 'package nil t)
+  ;; add repository
+  (add-to-list 'package-archives
+               '("marmalade" . "http://marmalade-repo.org/packages/"))
+;;  (add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/"))
+  ;; load installed packages
+  (package-initialize))
+
+
 (require 'init-loader)
 (init-loader-load "~/.emacs.d/conf")
 

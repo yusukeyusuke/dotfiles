@@ -5,8 +5,6 @@
 (set-language-environment "Japanese")
 (prefer-coding-system 'utf-8)
 (set-keyboard-coding-system 'japanese-shift-jis)
-(setq default-input-method "W32-IME")
-(w32-ime-initialize)
 
 ;; UTF-8⇔Legacy Encoding (EUC-JP や Shift_JIS など)をWindowsで変換
 ;;  http://nijino.homelinux.net/emacs/emacs23-ja.html
@@ -74,9 +72,3 @@
 ;; C-oでIME入力切り替え
 (global-set-key "\C-o" 'toggle-input-method)
 
-;; IMEのON/OFFでカーソルの色を変える
-(set-cursor-color "black")
-(add-hook 'w32-ime-on-hook
-          (function (lambda () (set-cursor-color "LimeGreen"))))
-(add-hook 'w32-ime-off-hook
-          (function (lambda () (set-cursor-color "black"))))
