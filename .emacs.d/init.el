@@ -13,14 +13,10 @@
 (require 'init-loader)
 (init-loader-load "~/.emacs.d/conf")
 
-
-
-
-
-
 ;; keyset
-(global-set-key "\C-h" 'backward-delete-char) ;C-h as BackSpace
+(keyboard-translate ?\C-h ?\C-?) ;C-h as BackSpace
 (global-set-key "\M-?" 'help-for-help)        ;M-? as help
+
 
 (cd "~")                            ;start on home directory
 (setq-default indent-tabs-mode nil) ;When pushing [TAB],  input WhiteSpaces.
