@@ -1,0 +1,12 @@
+[push]
+	default = tracking
+[user]
+	name = Yusuke Nishiguchi
+	email = nishiguchi.yusuke@jp.panasonic.com
+[url "gitosis@ace"]
+	insteadof = gitosis@cranky
+[core]
+	excludesfile = /host/ace/ynishiguchi/.gitignore
+	pager = less -R
+[color]
+	ui = auto
