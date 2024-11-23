@@ -65,77 +65,11 @@ fc.emacs_target_class  += []
 
 # Emacs のキーバインドに“したくない”アプリケーションソフトを指定する
 # （Keyhac のメニューから「内部ログ」を ON にすると processname や classname を確認することができます）
-fc.not_emacs_target    += [
-                            "bash.exe",           # WSL
-                            "ubuntu.exe",         # WSL
-                            "SLES-12.exe",        # WSL
-                            "openSUSE-42.exe",    # WSL
-                            "mintty.exe",         # mintty
-                            "Cmder.exe",          # Cmder
-                            "ConEmu.exe",         # ConEmu
-                            "ConEmu64.exe",       # ConEmu
-                            "emacs.exe",          # Emacs
-                            "emacs-X11.exe",      # Emacs
-                            "emacs-w32.exe",      # Emacs
-                            "gvim.exe",           # GVim
-                            "xyzzy.exe",          # xyzzy
-                            "VirtualBox.exe",     # VirtualBox
-                            "XWin.exe",           # Cygwin/X
-                            "XWin_MobaX.exe",     # MobaXterm/X
-                            "Xming.exe",          # Xming
-                            "vcxsrv.exe",         # VcXsrv
-                            "putty.exe",          # PuTTY
-                            "ttermpro.exe",       # TeraTerm
-                            "MobaXterm.exe",      # MobaXterm
-                            "VRChat.exe",         # VRChat
-                            "TurboVNC.exe",       # TurboVNC
-                            "Fusion360.exe",      # Fusion360
-                            "blender-app.exe",    # Blender
-                            "blender.exe",        # Blender
-                            "PureRef.exe",        # PureRef
-                            "sublime_text.exe",   # SublimeText
-                            "idea.exe",           # IntelliJ
-                            "higan.exe",
-                            "ImageGlass.exe",
-                            "FallGuys_client.exe",
-                            "Dolphin.exe",
-                            "snes9x.exe",
-                            "znes.exe",
-                            "pcbnew.exe",
-                            "Neos.exe",
-                            "MuseScore4.exe",
-                            "eeschema.exe",
-                            "Resolve.exe",
-                            "Minecraft.Windows.exe",
-                            "Unity.exe",          # Davinci
-                            "DJMAX RESPECT V.exe",
-                            "vncviewer.exe"       # UltraVNC
-                            ]
+fc.not_emacs_target    += []
 
 # IME の切り替え“のみをしたい”アプリケーションソフトを指定する
 # （指定できるアプリケーションソフトは、not_emacs_target で（除外）指定したものからのみとなります）
-fc.ime_target          += [
-                            "bash.exe",           # WSL
-                            "ubuntu.exe",         # WSL
-                            "SLES-12.exe",        # WSL
-                            "openSUSE-42.exe",    # WSL
-                            "mintty.exe",         # mintty
-                            "Cmder.exe",          # Cmder
-                            "ConEmu.exe",         # ConEmu
-                            "ConEmu64.exe",       # ConEmu
-                            "gvim.exe",           # GVim
-                            "xyzzy.exe",          # xyzzy
-                            "putty.exe",          # PuTTY
-                            "ttermpro.exe",       # TeraTerm
-                            "MuseScore4.exe",     # Dolphin
-                            "Fusion360.exe",      # Fusion360
-                            "blender-app.exe",    # Blender
-                            "blender.exe",        # Blender
-                            "sublime_text.exe",   # SublimeText
-                            "idea.exe",           # IntelliJ
-                            "higan.exe",          # Higan
-                            "MobaXterm.exe"       # MobaXterm
-                            ]
+fc.ime_target          += []
 
 # キーマップ毎にキー設定をスキップするキーを指定する
 # （リストに指定するキーは、define_key の第二引数に指定する記法のキーとしてください。"A-v" や "C-v"
@@ -143,14 +77,14 @@ fc.ime_target          += [
 #   利用することができます。ワイルドカード文字をエスケープしたい場合は、[] で括ってください。）
 # （ここで指定したキーに新たに別のキー設定をしたいときには、「-2」が付くセクション内で define_key2
 #   関数を利用して定義してください）
-fc.skip_settings_key    = {"keymap_base"      : ["*W-g"], # ベース Keymap
-                           "keymap_global"    : [],       # グローバル Keymap
-                           "keymap_emacs"     : [],       # Emacs キーバインド対象アプリ用 Keymap
-                           "keymap_vscode"    : [],       # Emacs キーバインド VSCode 拡張用 Keymap
-                           "keymap_ime"       : [],       # IME 切り替え専用アプリ用 Keymap
-                           "keymap_ei"        : [],       # Emacs 日本語入力モード用 Keymap
-                           "keymap_tsw"       : [],       # タスク切り替え画面用 Keymap
-                           "keymap_lw"        : [],       # リストウィンドウ用 Keymap
+fc.skip_settings_key    = {"keymap_base"      : ["W-g", "A-Tab"], # ベース Keymap
+                           "keymap_global"    : [], # グローバル Keymap
+                           "keymap_emacs"     : [], # Emacs キーバインド対象アプリ用 Keymap
+                           "keymap_vscode"    : [], # Emacs キーバインド VSCode 拡張用 Keymap
+                           "keymap_ime"       : [], # IME 切り替え専用アプリ用 Keymap
+                           "keymap_ei"        : [], # Emacs 日本語入力モード用 Keymap
+                           "keymap_tsw"       : [], # タスク切り替え画面用 Keymap
+                           "keymap_lw"        : [], # リストウィンドウ用 Keymap
                            }
 
 # Emacs のキーバインドにするアプリケーションソフトで、Emacs キーバインドから除外するキーを指定する
@@ -196,6 +130,9 @@ fc.emacs_ime_mode_balloon_message = "▲"
 
 # IME の状態を表示するバルーンメッセージを表示するかどうかを指定する（True: 表示する、False: 表示しない）
 fc.use_ime_status_balloon = True
+
+# ウィンドウが切り替わった際、IME の状態をリセット（英数入力）するかを指定する（True: する、False: しない）
+fc.use_ime_status_reset = False
 
 # IME をトグルで切り替えるキーを指定する（複数指定可）
 fc.toggle_input_method_key = []
@@ -258,21 +195,12 @@ fc.application_key = None
 # （False に指定しても、C-u 数字キーで数引数を指定することができます）
 fc.use_ctrl_digit_key_for_digit_argument = False
 
+# 数字キー列が Alt キーと一緒に押されたとき、F1 から F12 のファンクションキーとして使うかを指定する
+# （True: 使う、False: 使わない）
+fc.use_alt_digit_key_for_f1_to_f12 = False
+
 # 表示しているウィンドウの中で、一番最近までフォーカスがあったウィンドウに移動するキーを指定する
 fc.other_window_key = "A-o"
-
-# アクティブウィンドウを切り替えるキーの組み合わせ（前、後 の順）を指定する（複数指定可）
-# （A-Esc キーの動作とは異なり、仮想デスクトップを跨ぎ、最小化されていないウィンドウを順に切り替え
-#   ます。初期設定は ["A-p", "A-n"] としていますが、Emacs の shell-mode のキーバインドなどと設定が
-#   被る場合には、["A-S-p", "A-S-n"] などの異なる設定とするか、Emacs 側に次の設定を入れて、Emacs 側
-#   のキーの設定を置き換えてご利用ください。
-#     (define-key key-translation-map (kbd "M-S-p") (kbd "M-p"))
-#     (define-key key-translation-map (kbd "M-S-n") (kbd "M-n"))
-#  ）
-fc.window_switching_key = []
-fc.window_switching_key += [["A-p", "A-n"]]
-# fc.window_switching_key += [["A-S-p", "A-S-n"]]
-# fc.window_switching_key += [["A-Up", "A-Down"]]
 
 # クリップボードリストを起動するキーを指定する
 fc.clipboardList_key = "A-y"
@@ -280,23 +208,31 @@ fc.clipboardList_key = "A-y"
 # ランチャーリストを起動するキーを指定する
 fc.lancherList_key = "A-l"
 
-# Microsoft Excel のセル内で改行を選択可能かを指定する（True: 選択可、False: 選択不可）
-# （kill_line 関数の挙動を変えるための変数です。Microsoft Excel 2019 以降では True にして
-#   ください。）
-fc.is_newline_selectable_in_Excel = True
-
-# ゲームなど、キーバインドの設定を極力行いたくないアプリケーションソフト（プロセス名称と
-# クラス名称の組み合わせ（ワイルドカード指定可））を指定する
+# ゲームなど、キーバインドの設定を極力行いたくないアプリケーションソフト（プロセス名称のみ、
+# もしくは、プロセス名称、クラス名称、ウィンドウタイトルのリスト（ワイルドカード指定可、
+# リストの後ろの項目から省略可））を指定する
 # （keymap_global 以外のすべてのキーマップをスルーします。ゲームなど、Keyhac によるキー設定と
 #   相性が悪いアプリケーションソフトを指定してください。keymap_base の設定もスルーするため、
 #   英語 -> 日本語キーボード変換の機能が働かなくなることにご留意ください。）
 # （msrdc.exe の行の有効化の必要性については、次のコミットの説明を参照してください。
 #   https://github.com/smzht/fakeymacs/commit/5ceb921bd754ce348f9cd79b6606086916520945）
-fc.game_app_list        = [["ffxiv_dx11.exe", "*"],            # FINAL FANTASY XIV
-                           # ["msrdc.exe",      "RAIL_WINDOW"],  # WSLg
+fc.game_app_list        = ["ffxiv_dx11.exe",              # FINAL FANTASY XIV
+                           # ["msrdc.exe", "RAIL_WINDOW"],  # WSLg
+                           # ["chrome.exe", "Chrome_WidgetWin_1", "（ウィンドウタイトル）"],
                            ]
 
 # [section-base-2] ---------------------------------------------------------------------------------
+
+# Grave Escape をエミュレーションする設定
+# （https://github.com/qmk/qmk_firmware/blob/master/docs/feature_grave_esc.md）
+# define_key(keymap_base, "S-Esc", self_insert_command("~"))
+# define_key(keymap_base, "W-Esc", self_insert_command("`"))
+
+# A-Tab で起動するタスク切り替え画面で、Alt+j,l,i,k のキーを使ってタスクを移動するための設定
+# define_key(keymap_tsw, "A-j", self_insert_command("A-Left"))
+# define_key(keymap_tsw, "A-l", self_insert_command("A-Right"))
+# define_key(keymap_tsw, "A-i", self_insert_command("A-Up"))
+# define_key(keymap_tsw, "A-k", self_insert_command("A-Down"))
 
 ####################################################################################################
 ## クリップボードリストの設定
@@ -384,14 +320,45 @@ fc.lancherList_listers = [
 # https://github.com/smzht/fakeymacs/blob/master/fakeymacs_manuals/extensions.org
 
 # --------------------------------------------------------------------------------------------------
+# ■ ウィンドウ操作関連
+# --------------------------------------------------------------------------------------------------
 
-# Chrome 系ブラウザで Ctl-x C-b を入力した際、Chrome の拡張機能 Quick Tabs を起動する
+# ウィンドウ操作のための設定を行う
 if 0:
-    fc.chrome_list= ["chrome.exe",
-                     "msedge.exe"]
-    fc.quick_tabs_shortcut_key = "A-q"
-    exec(readConfigExtension(r"chrome_quick_tabs\config.py"), dict(globals(), **locals()))
+    fc.minimize_window_key = [["A-S-m", "A-m"]]
+    fc.maximize_window_key = [["W-S-q", "W-q"]]
+    fc.switch_windows_key  = [["A-p", "A-n"]]
+    fc.switch_windows_key2 = [["A-S-p", "A-S-n"]]
+    fc.move_window_key_for_displays = [[None, "W-o"]]
+    fc.transpose_windows_key = "W-t"
+    fc.switch_desktops_key = [["W-b", "W-f"]]
+    fc.move_window_key_for_desktops = []
+    exec(readConfigExtension(r"window_operation\config.py"), dict(globals(), **locals()))
 
+# --------------------------------------------------------------------------------------------------
+# ■ ブラウザ関連
+# --------------------------------------------------------------------------------------------------
+
+# Chrome 系ブラウザで Ctl-x C-b を入力した際、Chrome の拡張機能 QuicKey を起動する
+if 0:
+    fc.chrome_list= ["msedge.exe",
+                     "chrome.exe",
+                     ]
+    fc.quickey_shortcut_key = "A-q"
+    exec(readConfigExtension(r"chrome_quickey\config.py"), dict(globals(), **locals()))
+
+# --------------------------------------------------------------------------------------------------
+
+# ブラウザをポップアップしてから、ブラウザのショートカットキーを入力するキーを設定する
+if 0:
+    fc.browser_list= ["chrome.exe",
+                      "msedge.exe",
+                      "firefox.exe",
+                      ]
+    exec(readConfigExtension(r"browser_key\config.py"), dict(globals(), **locals()))
+
+# --------------------------------------------------------------------------------------------------
+# ■ Emacs キーバインド関連
 # --------------------------------------------------------------------------------------------------
 
 # Emacs の shell-command-on-region の機能をサポートする
@@ -406,59 +373,67 @@ if 0:
 
 # --------------------------------------------------------------------------------------------------
 
+# Emacs キーバインドを利用しない設定のアプリで、メニューの操作用の Emacs キーバインドを設定する
+if 0:
+    fc.menu_target= ["ttermpro.exe", # TeraTerm
+                     ]
+    exec(readConfigExtension(r"menu_key\config.py"), dict(globals(), **locals()))
+
+# --------------------------------------------------------------------------------------------------
+# ■ VSCode 関連
+# --------------------------------------------------------------------------------------------------
+
 # VSCode 用のキーの設定を行う
 if 1:
-    fc.vscode_target  = ["Code.exe"]
-    fc.vscode_target += ["chrome.exe",
-                         "msedge.exe",
-                         "firefox.exe",
-                         ]
-
-    # fc.vscode_prefix_key = [["C-;", "C-A-;"]]
+    fc.vscode_prefix_key  = [["C-k", "C-A-k"]]
+    fc.cursor_prefix_key  = [["C-m", "C-A-m"]]
+    fc.vscode_replace_key = []
+    fc.cursor_replace_key = [["C-e", "C-A-e"],
+                             ["C-l", "C-A-l"],
+                             ]
     fc.use_ctrl_atmark_for_mark = False
-    fc.use_direct_input_in_vscode_terminal = False
+    fc.use_direct_input_in_vscode_terminal = True
     fc.esc_mode_in_keyboard_quit = 1
-
-    # VSCode Extension 用のキーの設定を行う
-    fc.vscode_dired = False
-    fc.vscode_recenter = False
-    fc.vscode_recenter2 = False
-    fc.vscode_occur = False
-    fc.vscode_quick_select = True
-    fc.vscode_input_sequence = True
-    fc.vscode_insert_numbers = True
-    fc.vscode_keyboard_macro = False
-    fc.vscode_filter_text = False
-
     exec(readConfigExtension(r"vscode_key\config.py"), dict(globals(), **locals()))
-    # vscode_extensions\config.py は、vscode_key\config.py 内部から呼ばれている
 
 # --------------------------------------------------------------------------------------------------
+# ■ IME 関連
+# --------------------------------------------------------------------------------------------------
 
-# Everything を起動するキーを指定する
+# 半角と全角の入力を間違えた際、入力モードの切り替えと入力文字の変換を行う
 if 0:
-    exec(readConfigExtension(r"everything\config.py"), dict(globals(), **locals()))
+    exec(readConfigExtension(r"zenkaku_hankaku\config.py"), dict(globals(), **locals()))
 
 # --------------------------------------------------------------------------------------------------
 
-# ブラウザをポップアップしてから、ブラウザのショートカットキーを入力するキーを設定する
+# 指定したキーを押下したときに IME の状態を表示する
 if 0:
-    fc.browser_list= ["chrome.exe",
-                      "msedge.exe",
-                      "firefox.exe"]
-    exec(readConfigExtension(r"browser_key\config.py"), dict(globals(), **locals()))
+    fc.pop_ime_balloon_key = ["C-;"]
+    # fc.pop_ime_balloon_key = ["O-" + fc.side_of_ctrl_key + "Ctrl"] # Ctrl キーの単押し
+    exec(readConfigExtension(r"pop_ime_balloon\config.py"), dict(globals(), **locals()))
 
 # --------------------------------------------------------------------------------------------------
-
-# 指定したアプリケーションソフトに F2（編集モード移行）を割り当てるキーを設定する
-if 0:
-    exec(readConfigExtension(r"edit_mode\config.py"), dict(globals(), **locals()))
-
+# ■ Emacs 関連
 # --------------------------------------------------------------------------------------------------
 
-# Emacs の場合、IME 切り替え用のキーを C-\ に置き換える
+# Emacs を利用する際のキーバインドの調整を行う
 if 0:
     exec(readConfigExtension(r"real_emacs\config.py"), dict(globals(), **locals()))
+
+# --------------------------------------------------------------------------------------------------
+
+# クリップボードに格納したファイルもしくはフォルダのパスを emacsclient で開く
+if 0:
+    fc.emacsclient_name = r"<emacsclient プログラムをインストールしている Windows のパス>\wslclient-n.exe"
+    exec(readConfigExtension(r"emacsclient\config.py"), dict(globals(), **locals()))
+
+# --------------------------------------------------------------------------------------------------
+# ■ キーボード関連
+# --------------------------------------------------------------------------------------------------
+
+# 60% US キーボードのキー不足（Delete キー、Backquote キー不足）の対策を行う
+if 0:
+    exec(readConfigExtension(r"compact_keyboard\config.py"), dict(globals(), **locals()))
 
 # --------------------------------------------------------------------------------------------------
 
@@ -477,46 +452,7 @@ if 0:
     exec(readConfigExtension(r"change_keyboard2\config.py"), dict(globals(), **locals()))
 
 # --------------------------------------------------------------------------------------------------
-
-# クリップボードに格納したファイルもしくはフォルダのパスを emacsclient で開く
-if 0:
-    fc.emacsclient_name = r"<emacsclient プログラムをインストールしている Windows のパス>\wslclient-n.exe"
-    exec(readConfigExtension(r"emacsclient\config.py"), dict(globals(), **locals()))
-
-# --------------------------------------------------------------------------------------------------
-
-# 指定したキーを押下したときに IME の状態を表示する
-if 0:
-    fc.pop_ime_balloon_key = ["C-;"]
-    # fc.pop_ime_balloon_key = ["O-" + fc.side_of_ctrl_key + "Ctrl"] # Ctrl キーの単押し
-    exec(readConfigExtension(r"pop_ime_balloon\config.py"), dict(globals(), **locals()))
-
-# --------------------------------------------------------------------------------------------------
-
-# 60% US キーボードのキー不足（Delete キー、Backquote キー不足）の対策を行う
-if 0:
-    exec(readConfigExtension(r"compact_keyboard\config.py"), dict(globals(), **locals()))
-
-# --------------------------------------------------------------------------------------------------
-
-# 半角と全角の入力を間違えた際、入力モードの切り替えと入力文字の変換を行う
-if 0:
-    exec(readConfigExtension(r"zenkaku_hankaku\config.py"), dict(globals(), **locals()))
-
-# --------------------------------------------------------------------------------------------------
-
-# Emacs キーバインドを利用しない設定のアプリで、メニューの操作用の Emacs キーバインドを設定する
-if 0:
-    fc.menu_target= ["ttermpro.exe", # TeraTerm
-                     ]
-    exec(readConfigExtension(r"menu_key\config.py"), dict(globals(), **locals()))
-
-# --------------------------------------------------------------------------------------------------
-
-# 現在アクティブなウィンドウと同じプロセスのウィンドウを順に切り替えるキーを設定する
-if 0:
-    exec(readConfigExtension(r"window_switching_key\config.py"), dict(globals(), **locals()))
-
+# ■ 不具合是正関連
 # --------------------------------------------------------------------------------------------------
 
 # YouTube で Space による停止、再生が正しく機能しないことの暫定的な対策を行う
@@ -530,6 +466,35 @@ if 1:
     exec(readConfigExtension(r"bunsetsu_correction\config.py"), dict(globals(), **locals()))
 
 # --------------------------------------------------------------------------------------------------
+# ■ その他
+# --------------------------------------------------------------------------------------------------
+
+# アプリでショートカットキーが設定されていないメニューコマンドにキーを設定する
+if 0:
+    fc.menu_command_key = [["chrome.exe", 35024, "C-A-r"], # 現在のタブの右隣に新しいタブを開く
+                           ["msedge.exe", 35024, "C-A-r"], # 現在のタブの右隣に新しいタブを開く
+                           ]
+    exec(readConfigExtension(r"menu_command_key\config.py"), dict(globals(), **locals()))
+
+# --------------------------------------------------------------------------------------------------
+
+# 指定したアプリケーションソフトに F2（編集モード移行）を割り当てるキーを設定する
+if 0:
+    exec(readConfigExtension(r"edit_mode\config.py"), dict(globals(), **locals()))
+
+# --------------------------------------------------------------------------------------------------
+
+# Everything を起動するキーを指定する
+if 0:
+    exec(readConfigExtension(r"everything\config.py"), dict(globals(), **locals()))
+
+# --------------------------------------------------------------------------------------------------
+
+# Boss だ！
+if 0:
+    exec(readConfigExtension(r"boss\config.py"), dict(globals(), **locals()))
+
+# --------------------------------------------------------------------------------------------------
 
 # 拡張機能を追加する場合は、ここに挿入してください
 
@@ -540,9 +505,16 @@ if 0:
     fc.space_fn_key = "Space"
     # fc.space_fn_key = "(29)" # 「無変換」キー
     # fc.space_fn_window_keymap_list = [keymap_emacs]
+    # fc.space_fn_window_keymap_list += [keymap_lw]
     # fc.space_fn_window_keymap_list += [keymap_ime]
     # fc.space_fn_window_keymap_list += [keymap_ei]
     # fc.space_fn_window_keymap_list += [fakeymacs.keymap_vscode]
     exec(readConfigExtension(r"space_fn\config.py"), dict(globals(), **locals()))
+
+# [section-extension-capslock_key] -----------------------------------------------------------------
+
+# CapsLock キーを Ctrl キーとして使うための設定を行う
+if 0:
+    exec(readConfigExtension(r"capslock_key\config.py"), dict(globals(), **locals()))
 
 # --------------------------------------------------------------------------------------------------
